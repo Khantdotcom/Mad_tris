@@ -1,6 +1,6 @@
 Game Design Document
 Project Name: Tetris Clone
-Author: [Your Name]
+Author: Khant Htay
 Date: August 5, 2025
 Language: Rust 1.70+
 Target Platform: Terminal (cross-platform)
