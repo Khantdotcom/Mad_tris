@@ -1,37 +1,102 @@
-Installation
-git clone <repo-url>
-cd rust-tetris
+**
+Tetris clone, terminal-based, written in Rust. “With a lil twerks and twirks.”
+
+---
+
+## Table of Contents
+
+- [Overview](#overview)  
+- [Installation](#installation)  
+- [Usage](#usage)  
+- [Controls](#controls)  
+- [Saving & Loading](#saving--loading)  
+- [High Score](#high-score)  
+- [Code Organization](#code-organization)  
+- [Development Plan](#development-plan)
+
+---
+
+## Overview
+
+Terminal-based Tetris clone.  
+Written in Rust.  
+Classic falling-block mechanics.  
+Dynamic board size; default is 10 columns × 20 rows.
+
+---
+
+## Installation
+
+```sh
+git clone https://github.com/Khantdotcom/Mad_tris.git
+cd Mad_tris
 cargo build --release
-
-Running the Game
+Usage
+sh
+Copy code
 cargo run --release
-
 Controls
+Key / Input	Action
+← / →	Move piece left/right
+↑	Rotate piece
+↓	Soft drop
+Spacebar	Hard drop
+P	Toggle pause
+S	Save game
+L	Load game
+Q / Esc	Quit
 
-Arrow keys → Move / Rotate / Drop
+Saving & Loading
+Save state saved to tetris_save.json in JSON.
 
-Space → Hard drop
+Load state reads from the same file.
 
-P → Pause
+High Score
+High score stored in highscore.txt as plain text.
 
-S → Save
+Updated automatically after game over if the current score exceeds the stored high score.
 
-L → Load
+Code Organization & Style
+Rust 2021 edition.
 
-Q → Quit
+Indentation: 4 spaces.
 
-Save/Load
+Naming:
 
-Game saves to tetris_save.json
+Functions/variables: snake_case
 
-High score saved in highscore.txt
+Structs/types: UpperCamelCase
 
-Code Style
+Modules & Responsibilities:
 
-Follows Rust 2021 edition defaults
+Game struct: board data, active piece, logic for movement, collision, scoring.
 
-Consistent indentation (4 spaces)
+ActivePiece: handles position, rotation state.
 
-Snake_case for functions and variables
+Serialization via serde for saving/loading state.
 
-UpperCamelCase for structs
+Screens:
+
+show_start_screen() – Title and key prompt.
+
+show_end_screen() – Final and high score display.
+
+Input processing and rendering using crossterm.
+
+Development Plan
+Core gameplay: board, pieces, movement, rotation, line clearing.
+
+Game loop: gravity, input, rendering.
+
+UI screens: Start and end screens.
+
+Persistence: Save/load state, high score tracking.
+
+Polish: speeds, gravity adjustments, status messages.
+
+License
+(Optional—add license details if applicable.)
+
+Contact
+Repository owner: Khantdotcom
+Feel free to open issues or pull requests.**
