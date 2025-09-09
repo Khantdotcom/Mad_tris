@@ -482,7 +482,7 @@ fn drain_event_queue() -> io::Result<()> {
 /// Displays a centered start screen and waits for any key press.
 fn show_start_screen<W: Write>(w: &mut W) -> io::Result<()> {
     let (width, height) = terminal::size()?;
-    let title = "RUST TETRIS";
+    let title = "Mad-TRIS";
     let msg = "Press any key to start";
 
     queue!(w, terminal::Clear(terminal::ClearType::All))?;
@@ -536,7 +536,7 @@ fn main() -> io::Result<()> {
 
     // Use a closure to manage the main loop and errors, ensuring cleanup happens.
     let result = (|| {
-        let mut high_score = load_high_score();
+        let mut high_score: u32 = load_high_score();
 
         'main_loop: loop {
             show_start_screen(&mut stdout)?;
